@@ -4,8 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class InsuranceService {
 
+    /**
+     * Service Name
+     * @example Doctor's Visits
+     */
     private String name;
 
+    /**
+     * Service copay
+     * @example "14.00" or "No copay if deductible is met"
+     */
     private String copay;
 
     public InsuranceService() {}

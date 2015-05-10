@@ -4,23 +4,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-/**
- * Created by jzajac on 5/10/15.
- */
 public class InsurancePlan {
 
+    /**
+     * Plan ID
+     */
     private long id;
 
+    /**
+     * Plan name
+     * @example InsureCo HMO 6600
+     */
     private String planName;
 
+    /**
+     * Insurer
+     * @example InsureCo
+     */
     private String insurer;
 
+    /**
+     * Monthly cost of insurance plan
+     * @example 145.00
+     */
     private double monthlyCost;
 
+    /**
+     * Yearly deductible of insurance plan
+     * @example 6500.00
+     */
     private double deductible;
 
+    /**
+     * List of insurance services offered
+     * @see InsuranceService
+     */
     private List<InsuranceService> services;
 
+    /**
+     * Grade of plan
+     * @example Bronze
+     */
     private String grade;
 
     public InsurancePlan() {}
