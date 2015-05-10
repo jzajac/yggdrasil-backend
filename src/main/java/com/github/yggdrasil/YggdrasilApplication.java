@@ -1,5 +1,6 @@
 package com.github.yggdrasil;
 
+import com.github.yggdrasil.health.SearchHealthCheck;
 import com.github.yggdrasil.resource.SearchResource;
 import io.dropwizard.Application;
 import io.dropwizard.java8.Java8Bundle;
@@ -43,6 +44,11 @@ public class YggdrasilApplication extends Application<YggdrasilConfiguration> {
         cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
 
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
+        // Register health checks
+        final SearchHealthCheck searchHealthCheck = new SearchHealthCheck();
+
+        environment.healthChecks().register("search", searchHealthCheck);
 
         // Register searchResource
         final SearchResource searchResource = new SearchResource();
